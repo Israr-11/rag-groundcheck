@@ -1,4 +1,4 @@
-# groundcheck
+# rag-groundcheck
 
 A sanity check for RAG (Retrieval-Augmented Generation) pipelines. One
 function call, no setup.
