@@ -28,8 +28,7 @@ Relevancy:    1.00
 Overall:      0.81
 ```
 
-- ** That's the whole setup. No API key, no config file, no model download, no
- signup. Two lines to install and import, one function call to get a score ** 
+**- That's the whole setup. No API key, no config file, no model download, no signup. Two lines to install and import, one function call to get a score.**
 
 ## What it catches
 
