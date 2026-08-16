@@ -4,7 +4,7 @@ A sanity check for RAG (Retrieval-Augmented Generation) pipelines. One
 function call, no setup.
 
 ```bash
-pip install groundcheck
+pip install rag-groundcheck
 ```
 
 ```python
