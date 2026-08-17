@@ -12,7 +12,7 @@ non-answers ("I don't know", "not mentioned", etc.) since those are
 common RAG failure modes worth surfacing.
 """
 
-from groundcheck.scorers.faithfulness import _tokenize
+from ragsanity.scorers.faithfulness import _tokenize
 
 _NON_ANSWER_PHRASES = (
     "i don't know",

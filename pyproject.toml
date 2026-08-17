@@ -3,14 +3,14 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "groundcheck"
+name = "ragsanity"
 version = "0.1.0"
 description = "Zero-dependency RAG sanity check: score faithfulness and relevancy in one function call, no API key, no ML libraries, no reference answers required."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 authors = [
-    { name = "Israr Ahmed", email = "israrie122@gmail.com" }
+    { name = "Your Name", email = "you@example.com" }
 ]
 keywords = ["rag", "llm", "evaluation", "retrieval-augmented-generation", "nlp", "hallucination", "faithfulness", "zero-dependency"]
 classifiers = [
@@ -29,12 +29,12 @@ dependencies = []
 dev = ["pytest>=7.0"]
 
 [project.urls]
-Homepage = "https://github.com/Israr-11/rag-groundcheck"
-Repository = "https://github.com/Israr-11/rag-groundcheck"
-Issues = "https://github.com/Israr-11/rag-groundcheck/issues"
+Homepage = "https://github.com/yourusername/ragsanity"
+Repository = "https://github.com/yourusername/ragsanity"
+Issues = "https://github.com/yourusername/ragsanity/issues"
 
 [project.scripts]
-groundcheck = "groundcheck.cli:main"
+ragsanity = "ragsanity.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["groundcheck*"]
+include = ["ragsanity*"]

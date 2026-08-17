@@ -1,4 +1,4 @@
-from groundcheck import EvalResult, evaluate
+from ragsanity import EvalResult, evaluate
 
 
 def test_evaluate_returns_eval_result():

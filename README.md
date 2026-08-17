@@ -1,14 +1,14 @@
-# rag-groundcheck
+# ragsanity
 
 A sanity check for RAG (Retrieval-Augmented Generation) pipelines. One
 function call, no setup.
 
 ```bash
-pip install rag-groundcheck
+pip install ragsanity
 ```
 
 ```python
-from groundcheck import evaluate
+from ragsanity import evaluate
 
 result = evaluate(
     question="What is the refund policy?",
@@ -20,7 +20,7 @@ print(result.summary())
 ```
 
 ```
-groundcheck result
+ragsanity result
 ------------------
 Question:     What is the refund policy?
 Faithfulness: 0.62
@@ -28,11 +28,12 @@ Relevancy:    1.00
 Overall:      0.81
 ```
 
-**- That's the whole setup. No API key, no config file, no model download, no signup. Two lines to install and import, one function call to get a score.**
+That's the whole setup. No API key, no config file, no model download, no
+signup. Two lines to install and import, one function call to get a score.
 
 ## What it catches
 
-`groundcheck` scores two failure modes independently, because they need
+`ragsanity` scores two failure modes independently, because they need
 different fixes:
 
 - **Faithfulness** — is the answer grounded in the retrieved context, or did
@@ -43,7 +44,7 @@ different fixes:
 Here's it catching both, back to back:
 
 ```python
-from groundcheck import evaluate
+from ragsanity import evaluate
 
 context = ["Our return policy allows customers to return items within 30 "
            "days of purchase for a full refund. Items must be unused and "
@@ -78,7 +79,7 @@ they mean a real setup cost before you get your first number: API keys,
 `.env` files, multi-GB model downloads, dependency conflicts in an existing
 project.
 
-`groundcheck` is deliberately the opposite tradeoff. It uses lexical overlap
+`ragsanity` is deliberately the opposite tradeoff. It uses lexical overlap
 — checking how much of an answer's meaningful vocabulary is grounded in the
 context, and how much of a question's vocabulary the answer addresses — pure
 Python, standard library only. That makes it:
@@ -90,7 +91,7 @@ Python, standard library only. That makes it:
 
 The tradeoff is real and worth naming: this is a proxy, not a semantic
 judge. A well-paraphrased answer that shares little vocabulary with the
-source can score lower than it "should." Use `groundcheck` as a fast first
+source can score lower than it "should." Use `ragsanity` as a fast first
 pass — the thing you run on every commit or every response before reaching
 for something heavier — not as your only evaluation layer.
 
@@ -123,8 +124,8 @@ Returns an `EvalResult`.
 No Python needed for one-off checks:
 
 ```bash
-groundcheck run examples.json
-groundcheck run examples.json --json   # machine-readable output
+ragsanity run examples.json
+ragsanity run examples.json --json   # machine-readable output
 ```
 
 `examples.json` can be a single object or a list of objects:

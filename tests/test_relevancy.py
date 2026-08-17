@@ -1,4 +1,4 @@
-from groundcheck.scorers.relevancy import score_relevancy
+from ragsanity.scorers.relevancy import score_relevancy
 
 
 def test_relevant_answer_scores_high():

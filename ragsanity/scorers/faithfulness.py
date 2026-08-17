@@ -3,7 +3,7 @@
 Answers the question: "is the answer actually grounded in the retrieved
 context, or did the model make stuff up?"
 
-Implementation note: to keep groundcheck dependency-free, this uses a
+Implementation note: to keep ragsanity dependency-free, this uses a
 lexical overlap heuristic rather than an LLM judge or embeddings model.
 It splits the answer into sentences and checks how much of each
 sentence's meaningful vocabulary is present in the combined context.

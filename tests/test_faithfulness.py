@@ -1,4 +1,4 @@
-from groundcheck.scorers.faithfulness import score_faithfulness
+from ragsanity.scorers.faithfulness import score_faithfulness
 
 
 def test_grounded_answer_scores_high():

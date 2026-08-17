@@ -1,6 +1,6 @@
-"""groundcheck: lightweight evaluation for RAG pipelines.
+"""ragsanity: lightweight evaluation for RAG pipelines.
 
-    from groundcheck import evaluate
+    from ragsanity import evaluate
 
     result = evaluate(
         question="What is the refund policy?",
@@ -10,8 +10,8 @@
     print(result.summary())
 """
 
-from groundcheck.evaluate import evaluate
-from groundcheck.models.result import EvalResult
+from ragsanity.evaluate import evaluate
+from ragsanity.models.result import EvalResult
 
 __version__ = "0.1.0"
 __all__ = ["evaluate", "EvalResult"]

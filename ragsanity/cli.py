@@ -1,8 +1,8 @@
-"""Command-line interface: `groundcheck`.
+"""Command-line interface: `ragsanity`.
 
 Usage:
-    groundcheck run example.json
-    groundcheck run example.json --json
+    ragsanity run example.json
+    ragsanity run example.json --json
 
 Where example.json looks like:
     {
@@ -18,7 +18,7 @@ import argparse
 import json
 import sys
 
-from groundcheck.evaluate import evaluate
+from ragsanity.evaluate import evaluate
 
 
 def _run_one(item: dict, as_json: bool) -> dict:
@@ -35,7 +35,7 @@ def _run_one(item: dict, as_json: bool) -> dict:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="groundcheck", description="Evaluate RAG outputs.")
+    parser = argparse.ArgumentParser(prog="ragsanity", description="Evaluate RAG outputs.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     run_parser = subparsers.add_parser("run", help="Evaluate one or more (question, contexts, answer) items from a JSON file.")

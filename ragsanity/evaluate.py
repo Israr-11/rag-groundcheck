@@ -1,8 +1,8 @@
 """The main entry point: evaluate()."""
 
-from groundcheck.models.result import EvalResult
-from groundcheck.scorers.faithfulness import score_faithfulness
-from groundcheck.scorers.relevancy import score_relevancy
+from ragsanity.models.result import EvalResult
+from ragsanity.scorers.faithfulness import score_faithfulness
+from ragsanity.scorers.relevancy import score_relevancy
 
 
 def evaluate(
@@ -29,7 +29,7 @@ def evaluate(
         metrics not requested are left as None.
 
     Example:
-        >>> from groundcheck import evaluate
+        >>> from ragsanity import evaluate
         >>> result = evaluate(
         ...     question="What is the refund policy?",
         ...     contexts=["You can return items within 30 days of purchase."],

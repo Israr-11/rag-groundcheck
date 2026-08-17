@@ -9,4 +9,4 @@ for when it lands.
 
 
 def score_completeness(question: str, answer: str, contexts: list[str]) -> tuple[float, dict]:
-    raise NotImplementedError("completeness scoring ships in groundcheck v0.2")
+    raise NotImplementedError("completeness scoring ships in ragsanity v0.2")

@@ -4,7 +4,7 @@ Run with:
     python examples/basic_usage.py
 """
 
-from groundcheck import evaluate
+from ragsanity import evaluate
 
 result = evaluate(
     question="What is the refund policy?",

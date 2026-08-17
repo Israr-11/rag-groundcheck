@@ -53,7 +53,7 @@ class EvalResult:
 
     def summary(self) -> str:
         """Human-readable summary for print(result.summary())."""
-        lines = ["groundcheck result", "-" * 18]
+        lines = ["ragsanity result", "-" * 16]
         lines.append(f"Question:     {self.question}")
         if self.faithfulness is not None:
             lines.append(f"Faithfulness: {self.faithfulness:.2f}")
