@@ -5,10 +5,6 @@ __pycache__/
 .eggs/
 build/
 dist/
-*.egg
-ragsanity/__init__.py
-pypi_token.txt
-pyproject.toml
 
 # Virtual environments
 venv/
@@ -31,5 +27,10 @@ htmlcov/
 # Packaging
 *.whl
 
-# Other
+# Secrets — never commit these
+pypi_token.txt
+*.pem
+.env
+
+# Scratch
 testing.txt
