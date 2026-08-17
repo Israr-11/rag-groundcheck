@@ -8,6 +8,7 @@ dist/
 *.egg
 ragsanity/__init__.py
 pypi_token.txt
+pyproject.toml
 
 # Virtual environments
 venv/
