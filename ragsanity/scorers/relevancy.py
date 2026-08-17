@@ -52,7 +52,7 @@ def score_relevancy(question: str, answer: str) -> tuple[float, dict]:
         return 0.0, {"reason": "answer has no meaningful keywords"}
 
     overlap = question_words & answer_words
-    # How much of the question's "topic" shows up in the answer.
+    # HOW MUCH OF THE QUESTION'S "topic" SHOWS UP IN THE ANSWER.
     coverage = len(overlap) / len(question_words)
 
     details = {

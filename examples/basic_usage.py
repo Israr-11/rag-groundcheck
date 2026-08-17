@@ -21,7 +21,7 @@ print()
 print("Faithfulness detail:", result.faithfulness_details)
 print("Relevancy detail:", result.relevancy_details)
 
-# Example of a bad answer, for contrast.
+# EXAMPLE OF A BAD ANSWER, FOR CONTRAST.
 bad_result = evaluate(
     question="What is the refund policy?",
     contexts=[

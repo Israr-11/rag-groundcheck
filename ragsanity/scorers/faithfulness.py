@@ -68,8 +68,8 @@ def score_faithfulness(answer: str, contexts: list[str]) -> tuple[float, dict]:
     for sentence in sentences:
         sentence_words = _tokenize(sentence)
         if not sentence_words:
-            # Sentence has no meaningful content words (e.g. "Yes.") --
-            # neutral, don't penalize or reward it.
+            # SENTENCE HAS NO MEANINGFUL CONTENT WORDS (e.g. "Yes.") --
+            # NEUTRAL, DON'T PENALIZE OR REWARD IT.
             continue
         supported = sentence_words & context_vocab
         ratio = len(supported) / len(sentence_words)
