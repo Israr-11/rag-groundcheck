@@ -13,5 +13,5 @@
 from ragsanity.evaluate import evaluate
 from ragsanity.models.result import EvalResult
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 __all__ = ["evaluate", "EvalResult"]
