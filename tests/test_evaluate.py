@@ -43,6 +43,17 @@ def test_evaluate_metrics_filter():
     )
     assert result.relevancy is not None
     assert result.faithfulness is None
+    assert result.completeness is None
+
+
+def test_evaluate_runs_completeness_by_default():
+    result = evaluate(
+        question="What is the refund window and who pays for return shipping?",
+        contexts=["Refunds are given within 30 days. The customer pays return shipping."],
+        answer="The refund window is 30 days.",
+    )
+    assert result.completeness is not None
+    assert result.completeness < 1.0
 
 
 def test_evaluate_rejects_unknown_metric():

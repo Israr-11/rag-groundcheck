@@ -27,13 +27,15 @@ class EvalResult:
     contexts: list[str]
     faithfulness: Optional[float] = None
     relevancy: Optional[float] = None
+    completeness: Optional[float] = None
     faithfulness_details: dict = field(default_factory=dict)
     relevancy_details: dict = field(default_factory=dict)
+    completeness_details: dict = field(default_factory=dict)
 
     @property
     def overall(self) -> Optional[float]:
         """Average of all computed scores. None if nothing was scored."""
-        scores = [s for s in (self.faithfulness, self.relevancy) if s is not None]
+        scores = [s for s in (self.faithfulness, self.relevancy, self.completeness) if s is not None]
         if not scores:
             return None
         return sum(scores) / len(scores)
@@ -46,9 +48,11 @@ class EvalResult:
             "contexts": self.contexts,
             "faithfulness": self.faithfulness,
             "relevancy": self.relevancy,
+            "completeness": self.completeness,
             "overall": self.overall,
             "faithfulness_details": self.faithfulness_details,
             "relevancy_details": self.relevancy_details,
+            "completeness_details": self.completeness_details,
         }
 
     def summary(self) -> str:
@@ -59,6 +63,8 @@ class EvalResult:
             lines.append(f"Faithfulness: {self.faithfulness:.2f}")
         if self.relevancy is not None:
             lines.append(f"Relevancy:    {self.relevancy:.2f}")
+        if self.completeness is not None:
+            lines.append(f"Completeness: {self.completeness:.2f}")
         if self.overall is not None:
             lines.append(f"Overall:      {self.overall:.2f}")
         return "\n".join(lines)
@@ -66,4 +72,5 @@ class EvalResult:
     def __repr__(self) -> str:
         f = f"{self.faithfulness:.2f}" if self.faithfulness is not None else "None"
         r = f"{self.relevancy:.2f}" if self.relevancy is not None else "None"
-        return f"EvalResult(faithfulness={f}, relevancy={r})"
+        c = f"{self.completeness:.2f}" if self.completeness is not None else "None"
+        return f"EvalResult(faithfulness={f}, relevancy={r}, completeness={c})"

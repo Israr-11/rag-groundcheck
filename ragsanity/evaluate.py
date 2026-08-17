@@ -3,6 +3,7 @@
 from ragsanity.models.result import EvalResult
 from ragsanity.scorers.faithfulness import score_faithfulness
 from ragsanity.scorers.relevancy import score_relevancy
+from ragsanity.scorers.completeness import score_completeness
 
 
 def evaluate(
@@ -20,9 +21,9 @@ def evaluate(
             strings (in whatever order your pipeline returned them).
         answer: The answer your LLM generated using those contexts.
         metrics: Which scorers to run. Defaults to all available
-            metrics: ["faithfulness", "relevancy"]. Pass a subset to
-            skip scorers you don't need (e.g. metrics=["relevancy"]
-            skips the faithfulness check).
+            metrics: ["faithfulness", "relevancy", "completeness"].
+            Pass a subset to skip scorers you don't need (e.g.
+            metrics=["relevancy"] skips faithfulness and completeness).
 
     Returns:
         An EvalResult with the requested scores populated. Scores for
@@ -41,7 +42,7 @@ def evaluate(
     if not isinstance(contexts, list):
         raise TypeError("contexts must be a list of strings")
 
-    available_metrics = {"faithfulness", "relevancy"}
+    available_metrics = {"faithfulness", "relevancy", "completeness"}
     selected = set(metrics) if metrics is not None else available_metrics
     unknown = selected - available_metrics
     if unknown:
@@ -60,6 +61,11 @@ def evaluate(
     if "relevancy" in selected:
         result.relevancy, result.relevancy_details = score_relevancy(
             question, answer
+        )
+
+    if "completeness" in selected:
+        result.completeness, result.completeness_details = score_completeness(
+            question, answer, contexts
         )
 
     return result

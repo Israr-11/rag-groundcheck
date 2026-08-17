@@ -33,15 +33,44 @@ signup. Two lines to install and import, one function call to get a score.
 
 ## What it catches
 
-`ragsanity` scores two failure modes independently, because they need
+`ragsanity` scores three failure modes independently, because they need
 different fixes:
 
 - **Faithfulness** — is the answer grounded in the retrieved context, or did
   the model add things that aren't there?
 - **Relevancy** — does the answer actually address the question, or is it
   correct-but-off-topic?
+- **Completeness** — for multi-part questions, did the answer cover every
+  part, or did it quietly skip half of it?
 
-Here's it catching both, back to back:
+```python
+from ragsanity import evaluate
+
+result = evaluate(
+    question="What is the refund window and who pays for return shipping?",
+    contexts=["Refunds are given within 30 days. The customer pays return shipping."],
+    answer="The refund window is 30 days.",
+)
+print(result.summary())
+```
+
+```
+ragsanity result
+----------------
+Question:     What is the refund window and who pays for return shipping?
+Faithfulness: 0.50
+Relevancy:    0.40
+Completeness: 0.50
+Overall:      0.47
+
+```
+
+`result.completeness_details["parts"]` tells you exactly which part got
+skipped — here, "who pays for return shipping?" — instead of just a low
+number with no explanation.
+
+Here's faithfulness and relevancy catching a fully hallucinated, off-topic
+answer, back to back:
 
 ```python
 from ragsanity import evaluate
@@ -102,8 +131,9 @@ for something heavier — not as your only evaluation layer.
 - `question` — `str`, the user's question.
 - `contexts` — `list[str]`, the chunks your retriever returned.
 - `answer` — `str`, the LLM's generated answer.
-- `metrics` — optional `list[str]`, subset of `["faithfulness", "relevancy"]`
-  to run. Defaults to both.
+- `metrics` — optional `list[str]`, subset of
+  `["faithfulness", "relevancy", "completeness"]` to run. Defaults to all
+  three.
 
 Returns an `EvalResult`.
 
@@ -113,9 +143,11 @@ Returns an `EvalResult`.
 |---|---|---|
 | `faithfulness` | `float \| None` | 0-1 groundedness score |
 | `relevancy` | `float \| None` | 0-1 question-alignment score |
+| `completeness` | `float \| None` | 0-1 multi-part question coverage score |
 | `overall` | `float \| None` | average of computed scores (property) |
 | `faithfulness_details` | `dict` | per-sentence breakdown, for debugging |
 | `relevancy_details` | `dict` | matched/unmatched keywords, for debugging |
+| `completeness_details` | `dict` | per-part coverage breakdown, for debugging |
 | `.summary()` | `str` | pretty-printed report |
 | `.to_dict()` | `dict` | JSON-serializable version of the result |
 
@@ -140,7 +172,7 @@ ragsanity run examples.json --json   # machine-readable output
 
 ## Roadmap
 
-- [ ] `completeness` scorer — did the answer cover every part of a
+- [x] `completeness` scorer — did the answer cover every part of a
       multi-part question? (v0.2)
 - [ ] Optional LLM-judge backend for teams that want semantic (not just
       lexical) scoring, opt-in via an extra so the core install stays
