@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ragsanity"
+version = "0.2.0"
+description = "Zero-dependency RAG sanity check: score faithfulness and relevancy in one function call, no API key, no ML libraries, no reference answers required."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Israr Ahmed", email = "israrie122@gmail.com" }
+]
+keywords = ["rag", "llm", "evaluation", "retrieval-augmented-generation", "nlp", "hallucination", "faithfulness", "zero-dependency"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/Israr-11/ragsanity"
+Repository = "https://github.com/Israr-11/ragsanity"
+Issues = "https://github.com/Israr-11/ragsanity/issues"
+
+[project.scripts]
+ragsanity = "ragsanity.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ragsanity*"]
