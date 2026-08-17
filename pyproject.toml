@@ -10,7 +10,7 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 authors = [
-    { name = "Your Name", email = "you@example.com" }
+    { name = "Israr Ahmed", email = "israrie122@gmail.com" }
 ]
 keywords = ["rag", "llm", "evaluation", "retrieval-augmented-generation", "nlp", "hallucination", "faithfulness", "zero-dependency"]
 classifiers = [
@@ -29,9 +29,9 @@ dependencies = []
 dev = ["pytest>=7.0"]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/ragsanity"
-Repository = "https://github.com/yourusername/ragsanity"
-Issues = "https://github.com/yourusername/ragsanity/issues"
+Homepage = "https://github.com/Israr-11/ragsanity"
+Repository = "https://github.com/Israr-11/ragsanity"
+Issues = "https://github.com/Israr-11/ragsanity/issues"
 
 [project.scripts]
 ragsanity = "ragsanity.cli:main"
