@@ -6,6 +6,8 @@ __pycache__/
 build/
 dist/
 *.egg
+ragsanity/__init__.py
+pypi_token.txt
 
 # Virtual environments
 venv/

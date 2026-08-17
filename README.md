@@ -172,8 +172,6 @@ ragsanity run examples.json --json   # machine-readable output
 
 ## Roadmap
 
-- [x] `completeness` scorer — did the answer cover every part of a
-      multi-part question? (v0.2)
 - [ ] Optional LLM-judge backend for teams that want semantic (not just
       lexical) scoring, opt-in via an extra so the core install stays
       dependency-free
