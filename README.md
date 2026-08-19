@@ -8,8 +8,8 @@
 A sanity check for RAG (Retrieval-Augmented Generation) pipelines. One
 function call, no setup.
 
-**pip install ragsanity
-**
+pip install ragsanity
+
 from ragsanity import evaluate
 
 result = evaluate(
