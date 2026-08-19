@@ -5,13 +5,11 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/ragsanity.svg)](https://pypi.org/project/ragsanity/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A sanity check for RAG (Retrieval-Augmented Generation) pipelines. One function call, no setup.
-
 A sanity check for RAG (Retrieval-Augmented Generation) pipelines. One
 function call, no setup.
 
-pip install ragsanity
-
+**pip install ragsanity
+**
 from ragsanity import evaluate
 
 result = evaluate(
