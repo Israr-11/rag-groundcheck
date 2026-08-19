@@ -4,7 +4,6 @@
 [![PyPI Downloads](https://img.shields.io/pypi/dm/ragsanity?color=brightgreen)](https://pypi.org/project/ragsanity/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/ragsanity.svg)](https://pypi.org/project/ragsanity/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# [![GitHub Stars](https://img.shields.io/github/stars/Israr-11/ragsanity?style=social)](https://github.com/Israr-11/ragsanity)
 
 A sanity check for RAG (Retrieval-Augmented Generation) pipelines. One function call, no setup.
 
